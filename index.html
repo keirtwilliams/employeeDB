@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="container">
+
+     
+        <div class="left-logo">
+            <a href="#">EMS Pro</a>
+        </div>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    
+              <div class="right-btn">
+          <a href="login.php" class="nav-login">Admin Login</a>
+</div>
+    </nav>
+
+    <section class="hero">
+        <div class="left-hero">
+            <h1 class="hero-head">
+                Manage Your <span class="color-text">Employees Efficiently</span>
+            </h1>
+            <p class="hero-para">
+                A complete solution for employee management, payroll processing, attendance tracking, and departmental operations—all on a unified platform.
+            </p>
+           <div class="hero-buttons">
+                <a href="login.php" class="first-btn hero-btn">Get Started</a>
+                   <a href="dashboard.php" class="second-btn hero-btn">Explore System</a>
+             </div>
+            <div class="hero-users">
+                <div class="hero-stat">
+                    <h1 class="hero-h">150+</h1>
+                    <p class="hero-text">Registered Employees</p>
+                </div>
+                <div class="hero-stat">
+                    <h1 class="hero-h">10+</h1>
+                    <p class="hero-text">Departments</p>
+                </div>
+                <div class="hero-stat">
+                    <h1 class="hero-h">500+</h1>
+                    <p class="hero-text">Payrolls Processed</p>
+                </div>
+            </div>
+        </div>
+        <div class="right-hero">
+            <img src="images/employee-hero.jpg" class="hero-img" alt="EMS Illustration">
+        </div>
+    </section>
+
+       <about class="about-container">
+              <h1 class="about-heading" id="about">Work smarter. Manage better.</h1>
+               <div class="text-container">
+                      <p class="context">
+                        “Managing employees shouldn’t be complicated.
+                          Our system gives teams one secure place to store, update, and organize employee information — without endless spreadsheets and manual work.
+                         With real-time updates, simple tools, and smart record-keeping, you can focus less on admin tasks and more on running your team.”
+                      </p>
+               </div>
+       </about>
+                <h1 class="service-heading" id="services">Services</h1>
+       <section class="services-container">
+                      
+          <div class="box-container">
+            
+        <div class="box">
+               <h1>Employee Management</h1>
+               <p>Track employment types such as probationary, regular, contractual, or resigned employees.</p>
+        </div>
+         <div class="box">
+               <h1>Position Management</h1>
+               <p>Add and maintain job roles or designations within the organization to define employee responsibilities.</p>
+        </div>
+        <div class="box">
+               <h1>User Management</h1>
+               <p>Manage system users, assign roles, and control access levels to ensure secure operations.</p>
+        </div>
+         <div class="box">
+               <h1>Salary Management</h1>
+               <p>Define salary ranges or grades for different roles and easily assign them to employees.</p>
+        </div>
+        </div>
+       </section>
+
+       <section class="contact-container">
+                   <h1 class="contact-head" id="contact">Contact Us</h1>
+        <div class="box-contact-container">
+              <h1>Get in Touch</h1>
+                 <p>You can reach us anytime</p>
+
+                 <input type="text" class="input" placeholder="Full name">
+                 <input type="email" class="input" placeholder="Your Email">
+                 <input type="number" class="input" placeholder="Phone number">
+
+                <button class="contact-btn">Submit</button>
+        </div>
+       </section>
+
+       <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+</script>
+
+</body>
+</html>

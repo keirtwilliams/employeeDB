@@ -1,0 +1,141 @@
+/* Reset box sizing for predictable layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* General Page Background */
+html, body {
+  height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f766e 0%, #0e7490 50%, #115e59 100%);
+    background-size: cover;
+}
+
+/* Login Card Container */
+.login-container {
+    width: 100%;
+    max-width: 420px;          
+    background: #ffffff;
+    padding: 36px 28px;      
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Keep heading clear and aligned left for better visual flow */
+.login-container h2 {
+    margin: 0 0 18px 0;
+    color: #0f766e;
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+}
+
+/* Form itself takes full width of the card */
+.login-container form {
+    width: 100%;
+}
+
+/* Form Group: stacked vertically and full width */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;                /* consistent spacing between label and input */
+    margin-bottom: 14px;
+    width: 100%;
+    text-align: left;
+}
+
+/* Label */
+label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Inputs: full width and consistent sizing */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* Focus styles */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #0f766e;
+    box-shadow: 0 0 6px rgba(15, 118, 110, 0.18);
+}
+
+/* Button: full width, consistent spacing from inputs */
+.login-btn {
+    width: 100%;
+    margin-top: 6px;
+    background: linear-gradient(135deg, #0f766e, #0e7490);
+    padding: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+/* Hover/active affordances */
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+/* Error message spans full width and sits above the form */
+.error-message {
+    color: #dc2626;
+    background-color: #fff1f1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* Small screens: less margin and smaller card */
+@media (max-width: 480px) {
+    .login-container {
+        margin: 20px;
+        padding: 22px;
+        border-radius: 12px;
+    }
+
+    .login-container h2 {
+        font-size: 20px;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
