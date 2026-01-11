@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 10, 2026 at 12:01 PM
+-- Generation Time: Jan 11, 2026 at 02:14 PM
 -- Server version: 9.1.0
 -- PHP Version: 8.3.14
 
@@ -31,19 +31,36 @@ DROP TABLE IF EXISTS `admins`;
 CREATE TABLE IF NOT EXISTS `admins` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
+  `full_name` varchar(100) DEFAULT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
+  `role` varchar(50) DEFAULT 'staff',
+  `department` varchar(50) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `salary` decimal(10,2) DEFAULT '25000.00',
+  `status` varchar(20) DEFAULT 'active',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'admin', '$2y$10$oKvn/xZ00dNoDliszoOd3.uabZdK8s77/7rBcoixiqsFXLbnBoWQ.', '2025-10-19 07:14:52'),
-(2, 'admin2', 'admin123456', '2026-01-10 11:39:12');
+INSERT INTO `admins` (`id`, `username`, `full_name`, `email`, `phone`, `password`, `role`, `department`, `address`, `salary`, `status`, `created_at`) VALUES
+(9, 'nurse_ann', 'Ann Perkins', 'ann.p@company.com', '555-0107', 'vitamins', 'staff', 'Health', '444 Pawnee Commons, Pawnee, IN', 58000.00, 'active', '2026-01-11 14:11:07'),
+(3, 'legal_mike', 'Mike Ross', 'mike.ross@company.com', '555-0101', 'lawyer123', 'advisor', 'Legal', '123 Pearson St, New York, NY', 95000.00, 'active', '2026-01-11 14:10:29'),
+(4, 'janitor_bob', 'Bob Belcher', 'bob.b@company.com', '555-0102', 'burgers4life', 'staff', 'Maintenance', '456 Ocean Ave, Seymours Bay, NJ', 32000.00, 'active', '2026-01-11 14:10:29'),
+(5, 'pr_holly', 'Holly Flax', 'holly.f@company.com', '555-0103', 'yodaears', 'manager', 'Human Resources', '789 Nashua Rd, Scranton, PA', 62000.00, 'active', '2026-01-11 14:10:29'),
+(6, 'dev_elliot', 'Elliot Alderson', 'elliot.a@company.com', '555-0104', 'mrrobot', 'admin', 'Cybersecurity', '101 Coney Island, Brooklyn, NY', 110000.00, 'active', '2026-01-11 14:10:29'),
+(7, 'sales_dwight', 'Dwight Schrute', 'dwight.s@company.com', '555-0105', 'beets', 'staff', 'Sales', 'Schrute Farms, Honesdale, PA', 55000.00, 'active', '2026-01-11 14:10:29'),
+(8, 'driver_dom', 'Dominic Toretto', 'dom.t@company.com', '555-0106', 'family', 'staff', 'Logistics', '1327 Toretto Blvd, Los Angeles, CA', 45000.00, 'active', '2026-01-11 14:10:29'),
+(10, 'architect_ted', 'Ted Mosby', 'ted.m@company.com', '555-0108', 'bluehorn', 'advisor', 'Design', '77th Street, New York, NY', 88000.00, 'active', '2026-01-11 14:11:07'),
+(11, 'scientist_sheldon', 'Sheldon Cooper', 'sheldon.c@company.com', '555-0109', 'bazinga', 'consultant', 'Research', '2311 Los Robles, Pasadena, CA', 105000.00, 'active', '2026-01-11 14:11:07'),
+(12, 'recep_erin', 'Erin Hannon', 'erin.h@company.com', '555-0110', 'florida', 'staff', 'Front Desk', '123 Scranton Business Park, PA', 30000.00, 'active', '2026-01-11 14:11:07'),
+(13, 'detective_jake', 'Jake Peralta', 'jake.p@company.com', '555-0111', 'coolcool', 'investigator', 'Security', '99th Precinct, Brooklyn, NY', 68000.00, 'active', '2026-01-11 14:11:07');
 
 -- --------------------------------------------------------
 
@@ -95,14 +112,7 @@ CREATE TABLE IF NOT EXISTS `employees` (
   PRIMARY KEY (`id`),
   KEY `position_id` (`position_id`),
   KEY `department_id` (`department_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `employees`
---
-
-INSERT INTO `employees` (`id`, `full_name`, `position_id`, `department_id`, `email`, `salary`, `date_hired`, `created_at`) VALUES
-(21, 'Enzi Hapitan', 14, 2, 'EnziHapitan@gmail.com', 69696969.00, '2026-06-09', '2026-01-10 11:37:08');
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
