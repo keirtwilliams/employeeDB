@@ -606,3 +606,44 @@ section {
   }
 }
 
+/* Container for the search feature */
+.search-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px dashed #27ae60;
+    border-radius: 5px;
+    background-color: #252525;
+}
+
+/* Label styling */
+.search-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+/* The vulnerable input field */
+.search-input {
+    width: 100%;
+    padding: 10px;
+    background-color: #111;
+    border: 1px solid #27ae60;
+    color: #fff;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+/* The status text area */
+.search-status {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    color: #bbb;
+}
+
+/* The 'Sink' - where XSS payloads will execute */
+#searchQueryDisplay {
+    color: #e74c3c;
+    font-weight: bold;
+    word-break: break-all; /* Prevents long scripts from breaking layout */
+}

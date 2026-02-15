@@ -10,10 +10,17 @@
 <div class="wrapper">
     <h2>Employee Management System</h2>
 
+<div class="search-container">
+    <label for="employeeSearch" class="search-label">Search Employee Records:</label>
+    <input type="text" id="employeeSearch" class="search-input" placeholder="Type to search...">
+    <p class="search-status">
+        Showing results for: <span id="searchQueryDisplay"></span>
+    </p>
+</div>
+
     <div class="add-btn-container">
         <a href="add.php" class="add-btn">+ Add Employee</a>
-            <a href="index.html" class="home-btn"> Home</a>
-
+        <a href="index.html" class="home-btn"> Home</a>
     </div>
 
     <table class="employee-table">
@@ -31,19 +38,14 @@
         </thead>
         <tbody>
         <?php
-
           session_start();
-         include 'config.php';
 
-          // Check if admin is logged in
-           if (!isset($_SESSION['admin'])) {
-            header("Location: login.php");
+          if (!isset($_SESSION['admin'])) {
+             header("Location: login.php");
              exit();
-}
+          }
 
-
-
-        $query = "
+          $query = "
             SELECT e.id, e.full_name, e.email, e.salary, e.date_hired,
                    p.position_name AS position,
                    d.department_name AS department
@@ -51,11 +53,11 @@
             LEFT JOIN positions p ON e.position_id = p.id
             LEFT JOIN departments d ON e.department_id = d.id
             ORDER BY e.id DESC
-        ";
+          ";
 
-        $result = $conn->query($query);
+          $result = $conn->query($query);
 
-        if ($result && $result->num_rows > 0):
+          if ($result && $result->num_rows > 0):
             while ($row = $result->fetch_assoc()):
         ?>
             <tr>
@@ -67,12 +69,11 @@
                 <td>₱<?= number_format($row['salary'], 2); ?></td>
                 <td><?= $row['date_hired']; ?></td>
                 <td>
-    <div class="action-buttons">
-        <a href="edit.php?id=<?= $row['id']; ?>" class="edit-btn">Edit</a>
-        <a href="delete.php?id=<?= $row['id']; ?>" onclick="return confirm('Are you sure?');" class="delete-btn">Delete</a>
-    </div>
-</td>
-
+                    <div class="action-buttons">
+                        <a href="edit.php?id=<?= $row['id']; ?>" class="edit-btn">Edit</a>
+                        <a href="delete.php?id=<?= $row['id']; ?>" onclick="return confirm('Are you sure?');" class="delete-btn">Delete</a>
+                    </div>
+                </td>
             </tr>
         <?php endwhile; else: ?>
             <tr>
@@ -82,6 +83,8 @@
         </tbody>
     </table>
 </div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
